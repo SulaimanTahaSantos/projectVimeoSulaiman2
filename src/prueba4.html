@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Contenedor wrapper para controlar el overflow */
+        .logos-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+    
+        .logos-slider-steps {
+            display: flex;
+            width: fit-content;
+            animation: slide-steps 30s linear infinite;
+        }
+    
+        .logo-item {
+            width: 200px;
+            height: 80px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+    
+        .logo-item img {
+            max-width: 100%;
+            max-height: 60px;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+    
+        .logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    
+        @keyframes slide-steps {
+            0% {
+                transform: translateX(0);
+            }
+    
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    
+        .logos-slider-steps:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="container-fluid bg-light py-4">
+            <!-- Contenedor del título -->
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="text-center text-break text-dark">
+                        La plataforma de confianza de 287 millones de creadores, empresarios y negocios
+                    </h2>
+                </div>
+            </div>
+    
+            <!-- Contenedor de logos con overflow hidden -->
+            <div class="logos-wrapper">
+                <div class="logos-slider-steps">
+                    <!-- Primer conjunto de logos -->
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/05408319d910ddba0c55440607e76d86" alt="Rite Aid">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/790a2c71fc0084c6b0623fe9aa37f2d1" alt="Deloitte">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/bf59fc6600263f12fa9bee6cb6b0081d" alt="Warner Bros">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/d54486aaccee4970f30eb0410ad80dcf" alt="Santander">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/481f17beba6d49994da581c14928d839" alt="Logo 5">
+                    </div>
+    
+                    <!-- Segundo conjunto de logos (duplicado) -->
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/05408319d910ddba0c55440607e76d86" alt="Rite Aid">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/790a2c71fc0084c6b0623fe9aa37f2d1" alt="Deloitte">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/bf59fc6600263f12fa9bee6cb6b0081d" alt="Warner Bros">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/d54486aaccee4970f30eb0410ad80dcf" alt="Santander">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://i.vimeocdn.com/custom_asset/481f17beba6d49994da581c14928d839" alt="Logo 5">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

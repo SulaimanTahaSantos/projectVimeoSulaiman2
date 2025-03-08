@@ -270,6 +270,95 @@
     .hero-section{
         display: none;
     }
+
+    .logos-container {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.fade-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #f8f9fa 60%, rgba(248, 249, 250, 0));
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #f8f9fa 60%, rgba(248, 249, 250, 0));
+}
+
+.logos-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.logos-slider-steps {
+  display: flex;
+  width: fit-content;
+  animation: slide-steps 30s linear infinite;
+}
+
+.logo-item {
+  width: 150px; /* Ajustamos el tamaño del logo para que se vea mejor en móviles */
+  height: 60px; /* Ajuste proporcional a la nueva anchura */
+  padding: 0 15px; /* Espaciado reducido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-item img {
+  max-width: 100%;
+  max-height: 50px; /* Ajuste para que los logos no sean demasiado grandes */
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.logo-item img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@keyframes slide-steps {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logos-slider-steps:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 600px) {
+  .logo-item {
+    width: 120px; 
+    height: 50px;
+  }
+
+  .fade-overlay {
+    width: 8%;
+  }
+
+  .logos-slider-steps {
+    animation: slide-steps 25s linear infinite; 
+  }
+}
+
 }
 
 @media (min-width: 1025px) and (max-width: 2000px) {
@@ -278,7 +367,7 @@
         margin-right: 300px;
     }
     .navbar {
-                z-index: 9997; /* Alto z-index para la navbar */
+        z-index: 9997; 
 
     }
     
@@ -437,26 +526,25 @@
     padding: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
-    transition: visibility 0s, opacity 0.3s ease-in-out;  /* Ajusta la transición */
-     z-index: 9999; /* Valor muy alto para asegurar que esté por encima de todo */
+    transition: visibility 0s, opacity 0.3s ease-in-out;  
+     z-index: 9999; 
         transition: visibility 0s, opacity 0.3s ease-in-out;
-        /* Importante: aseguramos que el submenu esté por encima de todo */
-        position: fixed; /* Cambiamos a fixed para que esté por encima de todo */
+        position: fixed; 
 }
 
     .nav-item {
         transition: all 0.3s ease-in-out;
-                z-index: 9998; /* Alto z-index para el elemento padre */
+                z-index: 9998; 
 
     }
     .nav-link:hover {
-  transition-delay: 3s; /* Retraso de 3 segundos en el hover */
-  color: red; /* Cambia el color o cualquier otro estilo que quieras aplicar */
+  transition-delay: 3s; 
+  color: red; 
 }
   .nav-item:hover .hidden-content {
-    visibility: visible; /* Mostrarlo al hacer hover */
-    opacity: 1;          /* Hacerlo visible */
-}
+    visibility: visible; 
+    opacity: 1;
+  }
     .nav-item:hover~.mainContent,
     .hidden-content:hover~.mainContent {
         filter: blur(8px);
@@ -494,7 +582,6 @@
         font-size: 15px;
         color: #333;
         height: 36px;
-        /* Altura fija para cada elemento de la lista */
     }
     .mega-menu li {
         cursor: pointer;
@@ -503,31 +590,29 @@
         margin-right: 10px;
         width: 18px;
         height: 18px;
-        /* Altura fija para todos los SVG */
+    
         flex-shrink: 0;
-        /* Evita que el SVG se encoja */
+
     }
     .mega-menu .icon-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 30px;
-        /* Ancho fijo para el contenedor del ícono */
+  
         height: 30px;
-        /* Altura fija para el contenedor del ícono */
+
         margin-right: 10px;
     }
     nav {
         background: #fafcfd;
-        /* Color sólido por defecto */
         transition: background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
     }
     .nav-item:hover~nav,
     nav:hover {
         background: #f5f8f9;
-        /* Hace el fondo translúcido */
+
         backdrop-filter: blur( 10px);
-        /* Opcional, desenfoque para efecto más elegante */
     }
 
     .mac{
@@ -546,6 +631,11 @@
     opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
 }   
+
+.animationDelay1{
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
 
 .screen img {
     height: 700px;
@@ -581,7 +671,7 @@
 .hero-section {
     position: relative;
     width: 100%;
-    min-height: 20vh; /* Esto puede modificarse si necesitas un tamaño diferente */
+    min-height: 20vh; 
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -608,8 +698,79 @@
 }
  .hero-title { font-size: 3.5rem; font-weight: 600; line-height: 1.2; margin-bottom: 1rem; /* Reducido de 1.5rem a 1rem */ } .hero-description { font-size: 1.25rem; line-height: 1.5; opacity: 0.9; max-width: 800px; margin: 0 auto 1.5rem; /* Reducido de 2rem a 1.5rem */ } .button-wrapper { display: flex; justify-content: center; } .demo-button { background-color: #17d5ff !important; color: #000 !important; padding: 0.75rem 1.5rem; border-radius: 4px; font-weight: 500; transition: all 0.3s ease; min-width: 250px; /* Ajustado el ancho mínimo */ } .demo-button:hover { background-color: #00aacf !important; transform: translateY(-2px); } .arrow-icon { margin-left: 8px; fill: currentColor; transition: transform 0.3s ease; } .demo-button:hover .arrow-icon { transform: translateX(4px); } /* Responsive adjustments */ @media (max-width: 768px) { .hero-section { min-height: 50vh; } .hero-title { font-size: 2.5rem; } .hero-description { font-size: 1.1rem; } .content-wrapper { padding: 60px 20px; } .demo-button { width: 100%; min-width: auto; } }
 
+  .logos-container {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+  }
+
+  .fade-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    z-index: 2;
+    pointer-events: none; 
+
+  }
+
+  .fade-left {
+    left: 0;
+    background: linear-gradient(to right, #f8f9fa 60%, rgba(248, 249, 250, 0));
+  }
+
+  .fade-right {
+    right: 0;
+    background: linear-gradient(to left, #f8f9fa 60%, rgba(248, 249, 250, 0));
+  }
+
  
+  .logos-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
 
+  .logos-slider-steps {
+    display: flex;
+    width: fit-content;
+    animation: slide-steps 30s linear infinite;
+  }
 
+  .logo-item {
+    width: 200px;
+    height: 80px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-item img {
+    max-width: 100%;
+    max-height: 60px;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .logo-item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  @keyframes slide-steps {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .logos-slider-steps:hover {
+    animation-play-state: paused;
+  }
 
 }
