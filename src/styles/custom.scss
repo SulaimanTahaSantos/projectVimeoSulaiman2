@@ -267,6 +267,9 @@
     .pc-only{
         display: none;
     }
+    .hero-section{
+        display: none;
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 2000px) {
@@ -599,7 +602,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 0; /* Esto también puede ajustarse si es necesario */
+    padding: 80px 0; 
      opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
 }
