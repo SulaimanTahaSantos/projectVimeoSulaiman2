@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .hero-section { position: relative; width: 100%; min-height: 80vh; overflow: hidden; } .background-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } .background-image { width: 100%; height: 100%; object-fit: cover; object-position: center; } .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); /* Ajusta la opacidad aquí */ } .content-wrapper { position: relative; z-index: 2; padding: 120px 0; width: 100%; height: 100%; display: flex; align-items: center; } .hero-title { font-size: 3.5rem; font-weight: 600; line-height: 1.2; margin-bottom: 1.5rem; } .hero-description { font-size: 1.25rem; line-height: 1.6; opacity: 0.9; max-width: 800px; margin: 0 auto 2rem; } .button-wrapper { display: flex; justify-content: center; } .demo-button { background-color: #17d5ff !important; color: #000 !important; padding: 0.75rem 2rem; border-radius: 4px; font-weight: 500; transition: all 0.3s ease; min-width: 280px; } .demo-button:hover { background-color: #00aacf !important; transform: translateY(-2px); } .arrow-icon { margin-left: 8px; fill: currentColor; transition: transform 0.3s ease; } .demo-button:hover .arrow-icon { transform: translateX(4px); } /* Responsive adjustments */ @media (max-width: 768px) { .hero-title { font-size: 2.5rem; } .hero-description { font-size: 1.1rem; } .content-wrapper { padding: 80px 20px; } .demo-button { width: 100%; min-width: auto; } }
+    </style>
+</head>
+<body>
+    <div class="hero-section position-relative">
+        <!-- Background image with overlay -->
+        <div class="background-wrapper">
+            <img src="https://i.vimeocdn.com/custom_asset/8b5bc41926561c9ac287a727ade1f786?w=1920&q=80" alt=""
+                class="background-image" aria-hidden="true">
+            <div class="overlay"></div>
+        </div>
+    
+        <!-- Content container -->
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
+                        <h1 class="hero-title display-4 text-white mb-4">
+                            Su paquete completo de herramientas de video
+                        </h1>
+                        <p class="hero-description text-white mb-5">
+                            Obtenga todo lo que necesita para editar, gestionar y publicar videos impactantes que generen
+                            resultados.
+                        </p>
+                        <div class="button-wrapper">
+                            <a href="https://vimeo.com/es/features/video-privacy" class="demo-button btn">
+                                <span class="d-flex align-items-center justify-content-center">
+                                    <span>Solicitar una demostración</span>
+                                    <svg width="24" height="24" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                                        class="arrow-icon">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M13.085 10.8333L9.42356 14.5731C9.04929 14.9553 9.04929 15.5667 9.42356 15.949C9.8092 16.3429 10.4433 16.3429 10.8289 15.949L15.965 10.703C16.345 10.3148 16.345 9.68553 15.965 9.29737L10.8289 4.05105C10.4433 3.65715 9.80921 3.65713 9.42356 4.05101C9.04928 4.43328 9.04926 5.04462 9.42352 5.42691L13.0847 9.16666L4.58333 9.16666C4.1231 9.16666 3.75 9.53976 3.75 10C3.75 10.4602 4.1231 10.8333 4.58333 10.8333L13.085 10.8333Z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</body>
+</html>
