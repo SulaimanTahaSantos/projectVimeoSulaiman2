@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú con retraso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+        }
+
+        .menu li {
+            position: relative;
+            padding: 15px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu li:hover {
+            background-color: #575757;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            min-width: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .submenu li {
+            padding: 10px;
+            color: white;
+        }
+
+        .submenu li:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="menu">
+        <li onmouseover="showSubmenu(this)" onmouseleave="hideSubmenu(this)">Elemento 1
+            <ul class="submenu">
+                <li>Sub-item 1</li>
+                <li>Sub-item 2</li>
+                <li>Sub-item 3</li>
+            </ul>
+        </li>
+        <li onmouseover="showSubmenu(this)" onmouseleave="hideSubmenu(this)">Elemento 2
+            <ul class="submenu">
+                <li>Sub-item 1</li>
+                <li>Sub-item 2</li>
+                <li>Sub-item 3</li>
+            </ul>
+        </li>
+        <li onmouseover="showSubmenu(this)" onmouseleave="hideSubmenu(this)">Elemento 3
+            <ul class="submenu">
+                <li>Sub-item 1</li>
+                <li>Sub-item 2</li>
+                <li>Sub-item 3</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        let hideTimeout;
+
+        function showSubmenu(item) {
+            // Mostrar el submenu de inmediato
+            const submenu = item.querySelector('.submenu');
+            submenu.style.display = 'block';
+
+            // Cancelar cualquier temporizador anterior
+            clearTimeout(hideTimeout);
+        }
+
+        function hideSubmenu(item) {
+            // Especificar que el submenu debe desaparecer después de 3 segundos
+            hideTimeout = setTimeout(() => {
+                const submenu = item.querySelector('.submenu');
+                submenu.style.display = 'none';
+            }, 3000); // 3 segundos
+        }
+    </script>
+
+</body>
+
+</html>
