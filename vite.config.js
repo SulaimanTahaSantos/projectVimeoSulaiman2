@@ -2,11 +2,18 @@ import { defineConfig } from 'vite';
 import path from 'path';
 
 export default defineConfig({
-    root: path.resolve(__dirname),  // Cambiar 'src' a la raíz del proyecto
+    root: path.resolve(__dirname),
     publicDir: path.resolve(__dirname, 'public'),
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src'),
+        },
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@import "bootstrap/scss/bootstrap";`
+            },
         },
     },
 });
