@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimeo Features</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos generales */
+body {
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background-color: #fafcfd;
+    color: #333;
+}
+
+/* Estilos para las tarjetas de características */
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f5f8f9;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.feature-image-container {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.feature-card:hover .feature-image {
+    transform: scale(1.05);
+}
+
+.feature-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    height: 100%;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.feature-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.feature-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #17d5ff;
+    border-radius: 50%;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: flex-start;
+}
+
+.feature-button:hover {
+    background-color: #00aacf;
+    transform: translateX(5px);
+}
+
+.feature-button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-button-icon svg {
+    fill: white;
+}
+
+/* Estilos para la sección de pantalla dividida */
+.split-screen-container {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.split-screen-image {
+    height: 100%;
+    min-height: 400px;
+    background-color: #f0f4f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.split-screen-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.split-screen-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.split-screen-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.split-screen-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.split-screen-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #17d5ff;
+    border-radius: 50%;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.split-screen-button:hover {
+    background-color: #00aacf;
+    transform: translateX(10px);
+}
+
+/* Estilos responsivos */
+@media (max-width: 991.98px) {
+    .feature-card {
+        margin-bottom: 2rem;
+    }
+    
+    .feature-image-container {
+        height: 250px;
+    }
+    
+    .split-screen-image {
+        min-height: 300px;
+    }
+    
+    .split-screen-content {
+        padding: 2rem;
+    }
+    
+    .split-screen-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .feature-content, 
+    .split-screen-content {
+        padding: 1.5rem;
+    }
+    
+    .split-screen-title {
+        font-size: 1.75rem;
+    }
+    
+    .split-screen-description {
+        font-size: 1rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.row {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.col-12:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.col-12:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.col-12:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.col-12:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@media (max-width: 600px) {
+    .pc-only{
+        display: none;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container py-5 pc-only">
+        <div class="row mb-5">
+            <div class="col-12">
+                <h1 class="text-center mb-4">Características de Vimeo</h1>
+                <p class="text-center mb-5">Descubre todas las herramientas que Vimeo ofrece para tus videos</p>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-5">
+            <div class="col-12">
+                <div class="split-screen-container">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <div class="split-screen-image">
+                                <img src="https://i.vimeocdn.com/custom_asset/396c8ea0b0abec01f561e170698bdb8a?q=80"
+                                    alt="Vimeo Player Interface" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="split-screen-content">
+                                <h2 class="split-screen-title">Alojamiento y reproductor</h2>
+                                <p class="split-screen-description">
+                                    Aloje sus videos con nuestro reproductor HD sin anuncios.
+                                    Dondequiera que los inserte o comparta, su diseño de
+                                    reproductor personalizado y su marca los acompañarán.
+                                </p>
+                                <a href="#" class="split-screen-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 pt-3">
+            <!-- Primera fila de características -->
+            <div class="col-12 col-lg-6">
+                <div class="feature-card">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-6 feature-image-container">
+                            <img src="https://i.vimeocdn.com/custom_asset/396c8ea0b0abec01f561e170698bdb8a?q=80"
+                                alt="Alojamiento y reproductor" class="feature-image">
+                        </div>
+                        <div class="col-md-6 feature-content">
+                            <h2 class="feature-title">Alojamiento y reproductor</h2>
+                            <p class="feature-description">
+                                Aloje sus videos con nuestro reproductor HD sin anuncios.
+                                Dondequiera que los inserte o comparta, su diseño de
+                                reproductor personalizado y su marca los acompañarán.
+                            </p>
+                            <a href="https://vimeo.com/es/features/online-video-hosting" class="feature-button">
+                                <span class="feature-button-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M13.085 10.8333L9.42356 14.5731C9.04929 14.9553 9.04929 15.5667 9.42356 15.949C9.8092 16.3429 10.4433 16.3429 10.8289 15.949L15.965 10.703C16.345 10.3148 16.345 9.68553 15.965 9.29737L10.8289 4.05105C10.4433 3.65715 9.80921 3.65713 9.42356 4.05101C9.04928 4.43328 9.04926 5.04462 9.42352 5.42691L13.0847 9.16666L4.58333 9.16666C4.1231 9.16666 3.75 9.53976 3.75 10C3.75 10.4602 4.1231 10.8333 4.58333 10.8333L13.085 10.8333Z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="feature-card">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-6 feature-image-container">
+                            <img src="https://i.vimeocdn.com/custom_asset/52495987046bfa12a188488ee2d4b6c9?w=654&q=80"
+                                alt="Creación y edición" class="feature-image">
+                        </div>
+                        <div class="col-md-6 feature-content">
+                            <h2 class="feature-title">Creación y edición</h2>
+                            <p class="feature-description">
+                                Cree y edite sus videos con nuestras sencillas herramientas.
+                                Agregue efectos, texto y más para que sus videos se destaquen.
+                            </p>
+                            <a href="https://vimeo.com/es/features/video-editor" class="feature-button">
+                                <span class="feature-button-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M13.085 10.8333L9.42356 14.5731C9.04929 14.9553 9.04929 15.5667 9.42356 15.949C9.8092 16.3429 10.4433 16.3429 10.8289 15.949L15.965 10.703C16.345 10.3148 16.345 9.68553 15.965 9.29737L10.8289 4.05105C10.4433 3.65715 9.80921 3.65713 9.42356 4.05101C9.04928 4.43328 9.04926 5.04462 9.42352 5.42691L13.0847 9.16666L4.58333 9.16666C4.1231 9.16666 3.75 9.53976 3.75 10C3.75 10.4602 4.1231 10.8333 4.58333 10.8333L13.085 10.8333Z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda fila de características -->
+            <div class="col-12 col-lg-6">
+                <div class="feature-card">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-6 feature-image-container">
+                            <img src="https://i.vimeocdn.com/custom_asset/5304f0eac24cd36046c8c4951ac9becf?w=654&q=80"
+                                alt="Transmisiones en vivo y eventos" class="feature-image">
+                        </div>
+                        <div class="col-md-6 feature-content">
+                            <h2 class="feature-title">Transmisiones en vivo y eventos</h2>
+                            <p class="feature-description">
+                                Transmita sus eventos en vivo o alójelos on-demand.
+                                Nuestras herramientas le permiten compartir fácilmente
+                                su contenido con el resto del mundo.
+                            </p>
+                            <a href="https://vimeo.com/es/features/livestreaming" class="feature-button">
+                                <span class="feature-button-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M13.085 10.8333L9.42356 14.5731C9.04929 14.9553 9.04929 15.5667 9.42356 15.949C9.8092 16.3429 10.4433 16.3429 10.8289 15.949L15.965 10.703C16.345 10.3148 16.345 9.68553 15.965 9.29737L10.8289 4.05105C10.4433 3.65715 9.80921 3.65713 9.42356 4.05101C9.04928 4.43328 9.04926 5.04462 9.42352 5.42691L13.0847 9.16666L4.58333 9.16666C4.1231 9.16666 3.75 9.53976 3.75 10C3.75 10.4602 4.1231 10.8333 4.58333 10.8333L13.085 10.8333Z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="feature-card">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-6 feature-image-container">
+                            <img src="https://i.vimeocdn.com/custom_asset/bec136064b1c6d8d5267d2d2b996ceda?w=654&q=80"
+                                alt="Monetización" class="feature-image">
+                        </div>
+                        <div class="col-md-6 feature-content">
+                            <h2 class="feature-title">Monetización</h2>
+                            <p class="feature-description">
+                                Gane dinero con sus videos con nuestras herramientas de monetización.
+                                Agregue anuncios, suscripciones y más a sus videos.
+                            </p>
+                            <a href="https://vimeo.com/es/ott" class="feature-button">
+                                <span class="feature-button-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M13.085 10.8333L9.42356 14.5731C9.04929 14.9553 9.04929 15.5667 9.42356 15.949C9.8092 16.3429 10.4433 16.3429 10.8289 15.949L15.965 10.703C16.345 10.3148 16.345 9.68553 15.965 9.29737L10.8289 4.05105C10.4433 3.65715 9.80921 3.65713 9.42356 4.05101C9.04928 4.43328 9.04926 5.04462 9.42352 5.42691L13.0847 9.16666L4.58333 9.16666C4.1231 9.16666 3.75 9.53976 3.75 10C3.75 10.4602 4.1231 10.8333 4.58333 10.8333L13.085 10.8333Z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de pantalla dividida (como en la imagen) -->
+     
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
