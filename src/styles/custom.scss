@@ -452,6 +452,103 @@
         opacity: 1;
     }
 
+    .ExplorarIntegracion{
+        position: absolute;
+        top: 50%;
+        left: -10%;
+        opacity: 0;
+        transform: translateY(-50%);
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        z-index: 2;
+    }
+
+    .UnirseFooter {
+         position: absolute;
+        top: 50%;
+        left: -10%;
+        opacity: 0;
+        transform: translateY(-50%);
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        z-index: 2;
+    }
+
+    .ContactarAsistencia{
+            position: absolute;
+        top: 50%;
+        left: -10%;
+        opacity: 0;
+        transform: translateY(-50%);
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        z-index: 2;
+    }
+
+    .box14:hover .ContactarAsistencia{
+        left: 28%;
+        top: 37%;
+        opacity: 1;
+    }
+
+
+
+    .box12:hover .ExplorarIntegracion {
+         left: 56%;
+        top: 39%;
+        opacity: 1;
+    }
+
+  
+    .box13:hover .UnirseFooter{
+        left: 57%;
+        top: 39%;
+        opacity: 1;
+    }
+.btnFooter1 {
+      width: 130px;
+      background-color: #17d5ff !important;
+      color: black !important;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .btnFooter2 {
+      width: 130px;
+      background-color: #28313A!important;
+      color: white !important;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .btnFooter2:hover {
+      background-color: #17d5ff !important;
+    }
+
+      .btnFooter1:hover {
+      background-color: #00aacf !important;
+    }
+    
+
+    .box13:hover .btnFooter1{
+        background-color: #00aacf !important;
+    }
+
     .contenidoSolicitarDemostracion{
     position: absolute;
         top: 50%;
@@ -552,6 +649,9 @@
         z-index: 2;
     }
 
+    
+
+   
   
 
     .btn {
@@ -569,6 +669,12 @@
         transform: translateX(0);
         transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
+
+    .arrowfirstPC4 {
+                background-color: #0a0e12;
+
+    }
+   
     .box7:hover .hijoflecha1pc {
         opacity: 0;
         transform: translateX(10px);
@@ -588,10 +694,40 @@
             transform: translateX(10px);
         }
 
+          .box12:hover .hijoflecha1pc {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+
+        .box13:hover .hijoflecha1pc {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+
+        .box14:hover .hijoflecha1pc {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+
    
 
     .box9 {
   
+        position: relative;
+        transition: right 0.3s ease-in-out;
+    }
+
+    .box12 {
+        position: relative;
+        transition: right 0.3s ease-in-out;
+    }
+
+    .box13{
+         position: relative;
+        transition: right 0.3s ease-in-out;
+    }
+
+    .box14{
         position: relative;
         transition: right 0.3s ease-in-out;
     }
@@ -1517,6 +1653,250 @@ body {
                 width: 95%;
             }
         }
+
+     
+
+        .header-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        /* Contenedor principal del carrusel */
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Efectos de desvanecimiento en los bordes */
+        .fade-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .fade-left {
+            left: 0;
+            background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .fade-right {
+            right: 0;
+            background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        /* Contenedor de los logos */
+        .logos-track {
+            display: flex;
+            width: fit-content;
+        }
+
+        /* Animación fluida sin steps */
+        @keyframes slideFluid {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-220px * 8));
+                /* Ajustado para el ancho total de 8 logos */
+            }
+        }
+
+        .logos-animation1 {
+            animation: slideFluid 30s linear infinite;
+            /* Más tiempo para un movimiento más suave */
+            display: flex;
+        }
+
+        .logos-animation1:hover {
+            animation-play-state: paused;
+        }
+
+        /* Estilo para cada logo */
+        .logo-item1 {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 140px;
+            background-color: #121212;
+            border-radius: 12px;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-item1:hover {
+            transform: translateY(-5px);
+        }
+
+        .logo-item1 img {
+            max-width: 70%;
+            max-height: 70%;
+        }
+
+        /* Botón de explorar */
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .explore-btn:hover {
+            background-color: #e0e0e0;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .arrow-icon {
+            margin-left: 8px;
+        }
+
+          .footer {
+            background-color: var(--vimeo-dark);
+            padding: 60px 0 20px;
+            background-color: var(--vimeo-dark);
+            color: var(--vimeo-text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .footer h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--vimeo-text);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: none;
+            color: #00adef;
+        }
+
+        .btn-vimeo {
+            background-color: var(--vimeo-blue);
+            color: var(--vimeo-text);
+            border-radius: 3px;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .btn-vimeo:hover {
+            background-color: #0095cc;
+            color: var(--vimeo-text);
+        }
+
+        .btn-dark-custom {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--vimeo-text);
+            border-radius: 3px;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .btn-dark-custom:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--vimeo-text);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--vimeo-text);
+            font-size: 20px;
+        }
+
+        .social-links a:hover {
+            color: #00adef;
+        }
+        .condition-links a:hover {
+            text-decoration: none !important;
+            color: #00adef;
+        }
+        .condition-links {
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 12px;
+            color: var(--vimeo-gray);
+        }
+
+        .footer-bottom a {
+            color: var(--vimeo-gray);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+       
+           :root {
+            --vimeo-dark: #1a1a1a;
+            --vimeo-blue: #00adef;
+            --vimeo-text: #ffffff;
+            --vimeo-gray: #666666;
+        }
+ .selector{
+    background-color: #28313A;
+    color: white;
+    border-radius: 3px;
+ }
+ 
 
 
 }
