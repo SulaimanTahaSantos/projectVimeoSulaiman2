@@ -7,6 +7,8 @@
   <title>Página con Bootstrap 5 y SASS</title>
   <link rel="stylesheet" href="./src/styles/bootstrap.scss" />
   <link rel="stylesheet" href="./src/styles/custom.scss" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
 
 </head>
@@ -854,7 +856,7 @@
                   <!-- Segundo botón -->
                   <div class="box9">
                     <div class="hijobox9">
-                      <a class="btn" style="width: 180px; " href="https://vimeo.com/es/features/video-privacy">
+                      <a class="btn" style="width: 200px; " href="https://vimeo.com/es/features/video-privacy">
                         <span class="d-flex align-items-center">
                           <span class="me-2">Unirse Gratis</span>
                           <div class="hijoflecha1pc">
@@ -1521,7 +1523,7 @@
                           </div>
                         
                         
-                          <div class="herramientasDeVideo">
+                          <div class="herramientasDeVideo2">
                             <svg width="40px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                               class="shrink-0 arrowfirstPC2 rounded-1 ">
                               <g>
@@ -1865,7 +1867,76 @@
             </div>
           </div>
 
-          <div class="container bg-light py-5">
+          <!-- Tenemos que hacer en la seccion de casos de uso 3 columnas en las que estan con el mismo tamano pero si pasamos por encima con un hover se expandera la que la columna que hemos hecho hover pero las demas se reducen -->
+<div class="container my-5 pc-only">
+  <div class="text-center mb-5">
+    <p class="text-uppercase mb-2">Casos de uso</p>
+    <h2 class="display-5 fw-bold mb-4">Cómo utilizan Vimeo los clientes</h2>
+  </div>
+
+  <div class="use-cases-container">
+    <!-- Morgan Cooper -->
+    <div class="use-case-column">
+      <div class="use-case-card" data-video-id="436960717">
+        <img src="https://i.vimeocdn.com/custom_asset/3b519a6d03c716419d34270adc3a7889?w=1408&q=80" alt="Morgan Cooper"
+          class="poster-image">
+        <div class="play-button">
+          <i class="fas fa-play"></i>
+        </div>
+      </div>
+      <div class="use-case-content">
+        <h3>Morgan Cooper</h3>
+        <p>Este director destacado, tres veces elegido por el personal, comparte sus cortometrajes
+          profundamente personales e impactantes con Vimeo.</p>
+      </div>
+    </div>
+
+    <!-- Vermicular -->
+    <div class="use-case-column">
+      <div class="use-case-card" data-video-id="764297424">
+        <img src="https://i.vimeocdn.com/custom_asset/3cb41dceafd91acc5f09269d42abff7d?w=1408&q=80" alt="Vermicular"
+          class="poster-image">
+        <div class="play-button">
+          <i class="fas fa-play"></i>
+        </div>
+      </div>
+      <div class="use-case-content">
+        <h3>Vermicular</h3>
+        <p>La inversión en vídeo de Vermicular impulsa el alcance global y crea activos de marketing
+          reutilizables.</p>
+      </div>
+    </div>
+
+    <!-- Stellantis -->
+    <div class="use-case-column">
+      <div class="use-case-card" data-video-id="750432905">
+        <img src="https://i.vimeocdn.com/custom_asset/e0dab8beb6c817de5b52637aae31b7c1?w=1408&q=80" alt="Stellantis"
+          class="poster-image">
+        <div class="play-button">
+          <i class="fas fa-play"></i>
+        </div>
+      </div>
+      <div class="use-case-content">
+        <h3>Stellantis</h3>
+        <p>Con 300.000 empleados en todo el mundo, Stellantis confía en Vimeo para su enseñanza virtual
+          basada en vídeo a nivel mundial.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="video-overlay">
+  <button class="close-overlay">
+    <i class="fas fa-times"></i>
+  </button>
+  <div class="video-container">
+    <iframe class="video-iframe" src="/placeholder.svg" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+          <div class="container bg-light py-5 mobile-only">
             <section class="text-center">
               <h2 class="display-5 mx-auto mb-4 px-3">
                 Cómo utilizan Vimeo los clientes
@@ -2238,6 +2309,44 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+
+  <script>
+    const overlay = document.querySelector('.video-overlay');
+    const videoIframe = document.querySelector('.video-iframe');
+    const closeButton = document.querySelector('.close-overlay');
+
+    document.querySelectorAll('.use-case-card').forEach(card => {
+      card.addEventListener('click', function () {
+        const videoId = this.getAttribute('data-video-id');
+        videoIframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeButton.addEventListener('click', () => {
+      overlay.classList.remove('active');
+      videoIframe.src = ''; 
+      document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+        videoIframe.src = ''; 
+        document.body.style.overflow = ''; 
+      }
+    });
+
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        overlay.classList.remove('active');
+        videoIframe.src = ''; 
+        document.body.style.overflow = ''; 
+      }
+    });
+  </script>
     
 </body>
 

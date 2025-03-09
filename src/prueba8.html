@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de uso - Vimeo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Use cases container */
+        .use-cases-container {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 30px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Use case column */
+        .use-case-column {
+            flex: 1;
+            transition: flex 0.5s ease;
+        }
+
+        /* Hover effect - expand current column, shrink others */
+        .use-cases-container:hover .use-case-column {
+            flex: 0.8;
+        }
+
+        .use-case-column:hover {
+            flex: 2.4 !important;
+        }
+
+        /* Use case card (video container) */
+        .use-case-card {
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            height: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Poster image */
+        .poster-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .use-case-column:hover .poster-image {
+            transform: scale(1.05);
+        }
+
+        /* Play button overlay */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .use-case-card:hover .play-button {
+            background-color: rgba(0, 0, 0, 0.9);
+            opacity: 1;
+            width: 70px;
+            height: 70px;
+            font-size: 28px;
+        }
+
+        /* Video overlay */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .video-overlay.active {
+            display: flex;
+        }
+
+        .video-container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            aspect-ratio: 16/9;
+        }
+
+        .video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Close button */
+        .close-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .close-overlay:hover {
+            opacity: 0.8;
+        }
+
+        /* Use case content */
+        .use-case-content {
+            padding: 5px 0;
+        }
+
+        .use-case-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .use-case-content p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+            color: #555;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .use-cases-container {
+                flex-direction: column;
+            }
+
+            .use-case-column {
+                flex: 1 !important;
+                margin-bottom: 30px;
+            }
+
+            .use-case-card {
+                height: 250px;
+            }
+
+            .video-container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5 pc-only">
+        <div class="text-center mb-5">
+            <p class="text-uppercase mb-2">Casos de uso</p>
+            <h2 class="display-5 fw-bold mb-4">Cómo utilizan Vimeo los clientes</h2>
+        </div>
+
+        <div class="use-cases-container">
+            <!-- Morgan Cooper -->
+            <div class="use-case-column">
+                <div class="use-case-card" data-video-id="436960717">
+                    <img src="https://i.vimeocdn.com/custom_asset/3b519a6d03c716419d34270adc3a7889?w=1408&q=80"
+                  
+                        alt="Morgan Cooper" class="poster-image">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="use-case-content">
+                    <h3>Morgan Cooper</h3>
+                    <p>Este director destacado, tres veces elegido por el personal, comparte sus cortometrajes
+                        profundamente personales e impactantes con Vimeo.</p>
+                </div>
+            </div>
+
+            <!-- Vermicular -->
+            <div class="use-case-column">
+                <div class="use-case-card" data-video-id="764297424">
+                    <img src="https://i.vimeocdn.com/custom_asset/3cb41dceafd91acc5f09269d42abff7d?w=1408&q=80"
+                        alt="Vermicular" class="poster-image">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="use-case-content">
+                    <h3>Vermicular</h3>
+                    <p>La inversión en vídeo de Vermicular impulsa el alcance global y crea activos de marketing
+                        reutilizables.</p>
+                </div>
+            </div>
+
+            <!-- Stellantis -->
+            <div class="use-case-column">
+                <div class="use-case-card" data-video-id="750432905">
+                    <img src="https://i.vimeocdn.com/custom_asset/e0dab8beb6c817de5b52637aae31b7c1?w=1408&q=80"
+                        alt="Stellantis" class="poster-image">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="use-case-content">
+                    <h3>Stellantis</h3>
+                    <p>Con 300.000 empleados en todo el mundo, Stellantis confía en Vimeo para su enseñanza virtual
+                        basada en vídeo a nivel mundial.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Overlay -->
+    <div class="video-overlay">
+        <button class="close-overlay">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="video-container">
+            <iframe class="video-iframe" src="/placeholder.svg" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get DOM elements
+        const overlay = document.querySelector('.video-overlay');
+        const videoIframe = document.querySelector('.video-iframe');
+        const closeButton = document.querySelector('.close-overlay');
+
+        // Add click event to all video cards
+        document.querySelectorAll('.use-case-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const videoId = this.getAttribute('data-video-id');
+                videoIframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`;
+                https://player.vimeo.com/video/750432905?h=ab55dbe681&title=0&byline=0&portrait=0&pip=false
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; 
+            });
+        });
+
+        // Close overlay when clicking the close button
+        closeButton.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            videoIframe.src = ''; // Stop video playback
+            document.body.style.overflow = ''; 
+        });
+
+        // Close overlay when clicking outside the video
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+                videoIframe.src = ''; // Stop video playback
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Close overlay when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                overlay.classList.remove('active');
+                videoIframe.src = ''; // Stop video playback
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+    </script>
+</body>
+
+</html>
