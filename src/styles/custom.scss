@@ -452,6 +452,26 @@
         opacity: 1;
     }
 
+    .ExplorarIntegracion{
+        position: absolute;
+        top: 50%;
+        left: -10%;
+        opacity: 0;
+        transform: translateY(-50%);
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        z-index: 2;
+    }
+
+    .box12:hover .ExplorarIntegracion {
+         left: 56%;
+        top: 39%;
+        opacity: 1;
+    }
+
     .contenidoSolicitarDemostracion{
     position: absolute;
         top: 50%;
@@ -552,6 +572,9 @@
         z-index: 2;
     }
 
+    
+
+   
   
 
     .btn {
@@ -588,10 +611,20 @@
             transform: translateX(10px);
         }
 
+          .box12:hover .hijoflecha1pc {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+
    
 
     .box9 {
   
+        position: relative;
+        transition: right 0.3s ease-in-out;
+    }
+
+    .box12 {
         position: relative;
         transition: right 0.3s ease-in-out;
     }
@@ -1517,6 +1550,131 @@ body {
                 width: 95%;
             }
         }
+
+     
+
+        .header-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        /* Contenedor principal del carrusel */
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Efectos de desvanecimiento en los bordes */
+        .fade-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .fade-left {
+            left: 0;
+            background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .fade-right {
+            right: 0;
+            background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        /* Contenedor de los logos */
+        .logos-track {
+            display: flex;
+            width: fit-content;
+        }
+
+        /* Animación fluida sin steps */
+        @keyframes slideFluid {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-220px * 8));
+                /* Ajustado para el ancho total de 8 logos */
+            }
+        }
+
+        .logos-animation1 {
+            animation: slideFluid 30s linear infinite;
+            /* Más tiempo para un movimiento más suave */
+            display: flex;
+        }
+
+        .logos-animation1:hover {
+            animation-play-state: paused;
+        }
+
+        /* Estilo para cada logo */
+        .logo-item1 {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 140px;
+            background-color: #121212;
+            border-radius: 12px;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-item1:hover {
+            transform: translateY(-5px);
+        }
+
+        .logo-item1 img {
+            max-width: 70%;
+            max-height: 70%;
+        }
+
+        /* Botón de explorar */
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .explore-btn:hover {
+            background-color: #e0e0e0;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .arrow-icon {
+            margin-left: 8px;
+        }
+        
+ 
 
 
 }
